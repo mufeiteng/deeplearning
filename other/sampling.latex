@@ -1,0 +1,730 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\date{}
+
+\begin{document}
+
+\hypertarget{header-n1625}{%
+\section{采样方法}\label{header-n1625}}
+
+\hypertarget{header-n1628}{%
+\subsubsection{无意识统计学家法则(LOTUS)}\label{header-n1628}}
+
+已知随机变量\(X\)的概率密度为\(p(x)\) ，\(g(X)\) 为\(X\)的函数，则 ：
+
+\[E(g(X))=\int_a^b g(x) p_X(x)dx\]
+
+\hypertarget{header-n1631}{%
+\subsubsection{思想}\label{header-n1631}}
+
+采样⽅法背后的⼀般思想是得到从概率分布\(p(z)\)中独⽴抽取的⼀组变量\(z(l)\)
+， 其 中\(l=1,2,...L\)。这使得期望可以通过有限和的⽅式计算，即
+
+\[\hat{f}=\frac{1}{L}\sum^L_{l=1}f(z^{(l)})\]
+
+\hypertarget{header-n1634}{%
+\subsubsection{蒙特卡洛数值积分}\label{header-n1634}}
+
+对于一个连续函数\(f \space\)，要计算的积分有如下形式：
+
+\[F=\int^b_{a}f(x)dx\]
+
+转换：
+
+\[F=\int^b_a\frac{f(x)}{q(x)}q(x)dx\]
+
+根据\(q(x)\)采样\(X_i\)，\(f\)的蒙特卡洛积分公式为：
+
+\[F^N=\frac{1}{N}\sum^{N}_{i=1}\frac{f(X_i)}{q(X_i)}\]
+
+这公式的作用相当于在对\(f(x)\)做积分，只不过不那么``精确''，即蒙特卡罗积分是\textbf{对理想积分的近似}。
+
+那么这个近似是如何完成的？很简单，核心就是两个字：\textbf{采样(Sampling)}。对一个连续函数的采样方法是在该函数的定义域中随机挑\(N\)个值，并求出对应的\(N\)个\(f(X_i)\)，就得到了样本集合。再对这些样本集合做一些换算，就可以得到一个近似的积分了。对于蒙特卡罗积分，\textbf{采样样本越多，就越逼近真实的积分结果}，这是蒙特卡罗积分的最核心特性。
+
+证明：
+
+\begin{align}\begin{split}\mathbb{E}[F^N]&=\frac{1}{N}\sum^{N}_{i=1}\mathbb{E}[\frac{f(X_i)}{q(X_i)}]\\&=\frac{1}{N}\sum^{N-1}_{i=0}\int_{\omega}\frac{f(x)}{q(x)}q(x)dx\\&=F \end{split}\end{align}
+
+实际应用中，\(x\)可以选择均匀分布，\(q(x)=\frac{1}{m}\)，随机采样得到\(\frac{f(x_i)}{q(x_i)}\)，采样很多次后，求期望。
+
+这样把\(q(x)\)看做是\(x\)在区间内的概率分布，而把前面的分数部份看做一个函数，然后在\(q(x)\)下抽取\(n\)个样本，当\(n\)足够大时，可以用采用均值来近似：
+
+因此只要\(q(x)\)比较容易采到数据样本就行了。随机模拟方法的核心就是如何对一个概率分布得到样本，即抽样(sampling)
+。
+
+\hypertarget{header-n1648}{%
+\subsubsection{Monte Carlo principle}\label{header-n1648}}
+
+Monte Carlo 抽样计算随即变量的期望值是接下来内容的重点：\(X\)
+表示随即变量，服从概率分布\( p(x)\) ,
+那么要计算\( f(x) \)的期望，只需要我们不停从 \(p(x)\) 中抽样\(x_i\)
+，然后对这些\(f(x_i)\)取平均即可近似\(f(x)\)的期望。
+
+\[E_N(f)=\frac{1}{N}\sum_{i=1}^Nf(x^{(i)})\]
+
+\begin{figure}
+\centering
+\includegraphics{/Users/aszzy/Documents/study/note/pictures/algorithm/5.png}
+\caption{}
+\end{figure}
+
+\hypertarget{header-n1652}{%
+\subsubsection{逆变换采样}\label{header-n1652}}
+
+比较简单的一种情况是，我们可以通过PDF与CDF之间的关系，求出相应的CDF。或者我们根本就不知道PDF，但是知道CDF。此时就可以使用Inverse
+CDF的方法来进行采样。这种方法又称为逆变换采样（Inverse transform
+sampling）。
+
+所以，通常可以通过对PDF进行积分来得到概率分布的CDF。然后我们再得到CDF的反函数
+，如果你想得到\(n\)个观察值，则重复下面的步骤\(n\)次：
+
+\begin{itemize}
+\item
+  从 Uniform(0,1)
+  中随机生成一个值（前面已经说过，计算机可以实现从均匀分布中采样），用\(U\)表示。
+\item
+  计算\(x=CDF^{-1}(U)\)的值 ，则\(x\)就是从PDF中得出的一个采样点。
+\end{itemize}
+
+举个具体例子吧，例如我想按照标准正态分布\(N(0,1)\)取10个随机数，那么我首先在{[}0,1{]}上按照均匀分布取10个点
+
+0.4505 0.0838 0.2290 0.9133 0.1524 0.8258 0.5383 0.9961 0.0782 0.4427
+
+然后，我去找这些值在CDF上对应的\(x\)，如下
+
+-0.1243 -1.3798 -0.7422 1.3616 -1.0263 0.9378 0.0963 2.6636 -1.4175
+-0.1442
+
+那么上述这些点，就是我按照正态分布取得的10个随机数。
+
+\textbf{缺点}：
+
+\begin{itemize}
+\item
+  有时CDF不好求
+\item
+  CDF的反函数不好求
+\end{itemize}
+
+\hypertarget{header-n1671}{%
+\subsubsection{接受拒绝采样}\label{header-n1671}}
+
+很多实际问题中，\(p(x)\)是很难直接采样的的，因此，我们需要求助其他的手段来采样。既然\(p(x)\)太复杂在程序中没法直接采样，那么我设定一个程序可抽样可抽样的分布\(q(x)\)比如高斯分布，然后按照一定的方法拒绝某些样本，达到接近\(p(x)\)分布的目的。其中\(q(x)\)叫做
+proposal distribution 。
+
+\begin{figure}
+\centering
+\includegraphics{/Users/aszzy/Documents/study/note/pictures/algorithm/6.jpeg}
+\caption{}
+\end{figure}
+
+具体操作如下，设定一个方便抽样的函数 \(q(x)\) ，以及一个常量\(c\)，使得
+\(p(x)\) 总在\( cq(x)\) 的下方。
+
+\begin{itemize}
+\item
+  \(x\) 轴方向：从 \(q(x)\) 分布抽样得到\(x(i)\)；
+\item
+  y 轴方向：对\(x(i)\)计算接受概率：\(\alpha=\frac{p(x_i)}{cq(x_i)}\)；
+\item
+  从均匀分布\((0, 1)\)中抽样得到\( u\)； 
+\item
+  如果： \(\alpha \geq u\) ，
+  则接受\(x(i)\)作为\(p(x)\)的抽样；否则，拒绝，重复以上过程
+\end{itemize}
+
+它的原理从直观上来解释也是相当容易理解的。在上图的例子中，从哪些位置抽出的点会比较容易被接受？显然，红色曲线和绿色曲线所示之函数更加接近的地方接受概率较高，也即是更容易被接受，所以在这样的地方采到的点就会比较多，而在接受概率较低（即两个函数差距较大）的地方采到的点就会比较少，这也就保证了这个方法的有效性。
+
+\textbf{在高维的情况下，Rejection Sampling 会出现两个问题}：
+
+\begin{itemize}
+\item
+  合适的\( q \)分布比较难以找到，
+\item
+  很难确定一个合理的 \(c\) 值。
+\end{itemize}
+
+这两个问题会导致拒绝率很高，无用计算增加。
+
+\hypertarget{header-n1692}{%
+\subsubsection{重要性采样}\label{header-n1692}}
+
+\(f(x)\)为\(x\)的函数，\(p(x)\)为\(x\)的PDF，问题为求下式的积分：
+
+\[E[f(x)]=\int_Xf(x)p(x)dx\]
+
+按照蒙特卡洛求定积分的方法，我们将从满足\(p(x)\)的概率分布中独立地采样出一系列随机变量\(x_i\)
+，然后便有
+
+\[E[f(x)]\approx\frac{1}{N}\sum_{i=1}^Nf(x_i)\]
+
+但是现在的困难是对满足\(p(x)\)的概率分布进行采样非常困难，毕竟实际中很多\(p(x)\)的形式都相当复杂。这时我们该怎么做呢？于是想到做等量变换，将其转化为：
+
+\[\int_Xf(x)p(x)dx=\int_Xf(x)\frac{p(x)}{q(x)}q(x)dx=\int_Xf(x)w(x)q(x)dx\]
+
+其中\(w(x)=\frac{p(x)}{q(x)}\)，称其为重要性权重。那么，根据\(q(x)\)
+采样\(x_i\) (\textbf{此过程可以使用逆变换采样})，那么蒙特卡洛估计就是：
+
+\[I_N(f)=\frac{1}{N}\sum^N_{i=1}f(x_i)w(x_i)\]
+
+我们来考察一下上面的式子，\(p(x)\)和
+\(f(x)\)是确定的，我们要确定的是\(q(x)\)。要确定一个什么样的分布才会让采样的效果比较好呢？
+直观的感觉是，样本的方差越小期望收敛速率越快。举个简单的例子比如一次采样是
+0, 一次采样是 1000, 平均值是 500,这样采样效果很差，如果一次采样是 499,
+一次采样是 501, 你说期望是
+500,可信度还比较高。因此，我们很有必要研究相应的蒙特卡洛的方差：
+
+\[var_{q(x)}(f(x)w(x))=\mathbb{E}_{q(x)}(f^2(x)w^2(x))-I^2(f)\]
+
+上式中第二项不依赖于\(q(x)\)，因此我们只需要最小化第一项就可以。那么根据Jensen不等式可知具有下界即：
+
+\[\mathbb{E}_{q(x)}(f^2(x)w^2(x))\geq(\mathbb{E}_{q(x)}(|f(x|w(x)))^2=(\int|f(x|p(x)dx)^2\]
+
+那么下界达到即等号成立当且仅当
+
+\[q^*(x)=\frac{|f(x|p(x)}{\int|f(x|p(x)dx}\]
+
+尽管在实际中，上式很难拿取到，但是他告我们一个真理就是，当我们取样\(p(x)\)时候，应该是取\(|f(x)|p(x)\)相当大值，这样才有高效率的采样。
+这表明重要性采样有可能比用原来的\(p(x)\)分布抽样更加有效。
+
+\hypertarget{header-n1708}{%
+\subsubsection{采样在DL中的应用}\label{header-n1708}}
+
+\hypertarget{header-n1709}{%
+\paragraph{重要性采样}\label{header-n1709}}
+
+语言模型：在训练阶段，我们的目标是使得训练集中每个词语\(w\)的交叉熵最小，也就是使得softmax层输出值的负对数取值最小。模型的损失函数可以写成：
+
+\[J_\theta= -log \frac{exp(h^Tv_w^{'})}{\sum_{w_i \in V}exp(h^Tv^{'}_{w_i})}\]
+
+为了便于推导，我们将\(J_θ\)改写为：
+
+\[J_\theta= -h^Tv_w^{'} + log \sum_{w_i \in V}exp(h^Tv^{'}_{w_i})\]
+
+令 \(-\mathcal{E}(w)\)代替 \(h^Tv^{’}_w\)，于是得到等式：
+
+\[J_\theta= \mathcal{E}(w) + log \sum_{w_i \in V}exp(-\mathcal{E}(w_i))\]
+
+在反向传播阶段，我们可以将损失函数对于\(\theta \)的偏导写为：
+
+\[\nabla_\theta J_{\theta}=\nabla_\theta \mathcal{E}(w)+\nabla_\theta log\sum_{w_i \in V}exp(-\mathcal{E}(w_i))\]
+
+因为\(log \space x\)的导数是\(\frac1x\)，则上式又可以改写为：
+
+\begin{align}\begin{split}\nabla_\theta J_{\theta}&=\nabla_\theta \mathcal{E}(w)+ \frac{1}{\sum_{w_i \in V}exp(-\mathcal{E}(w_i))} \nabla_\theta \sum_{w_i \in V}exp(-\mathcal{E}(w_i)) \\
+&=\nabla_\theta \mathcal{E}(w)+ \frac{1}{\sum_{w_i \in V}exp(-\mathcal{E}(w_i))} \sum_{w_i \in V} \nabla_\theta exp(-\mathcal{E}(w_i))\\
+&=\nabla_\theta \mathcal{E}(w)+ \frac{1}{\sum_{w_i \in V}exp(-\mathcal{E}(w_i))} \sum_{w_i \in V} exp(-\mathcal{E}(w_i)) \nabla_\theta (-\mathcal{E}(w_i)) \\
+&=\nabla_\theta \mathcal{E}(w)+ \sum_{w_i \in V} \frac{exp(-\mathcal{E}(w_i)) }{\sum_{w_i \in V}exp(-\mathcal{E}(w_i))}  \nabla_\theta (-\mathcal{E}(w_i))
+\end{split}\end{align}
+
+注意：\(\frac{exp(-\mathcal{E}(w_i)) }{\sum_{w_i \in V}exp(-\mathcal{E}(w_i))} \)
+就是词语\(w_i\)的\(softmax\)概率值\(P(w_i)\)。将其代入上面的等式中得到：
+
+\begin{align}\begin{split}\nabla_\theta J_{\theta}
+&=\nabla_\theta \mathcal{E}(w)+ \sum_{w_i \in V} P(w_i) \nabla_\theta (-\mathcal{E}(w_i)) \\
+&=\nabla_\theta \mathcal{E}(w)- \sum_{w_i \in V} P(w_i) \nabla_\theta (\mathcal{E}(w_i))
+\end{split}\end{align}
+
+梯度值可以分解为两个部分：一部分与目标词语\(w\)正相关（等式右边的第一项），另一部分与其余所有词语负相关，按照各个词语的出现概率分配权重（等式右边的第二项）。我们可以发现，等式右边的第二项其实就是词表\(V\)中所有词语\(w_i\)的的期望值：
+
+\begin{align}\sum_{w_i \in V} P(w_i) \nabla_\theta (\mathcal{E}(w_i))=E_{w_i \sim P}[\nabla_\theta (\mathcal{E}(w_i))]\end{align}
+
+现在大多数基于采样方法的核心都是用简单的过程来近似计算后一项的值。
+
+如果已知网络模型的分布\(P(w)\)，于是我们就可以从中随机采样\(m\)个词语\(w_1,⋯,w_m\)
+，并用下面的公式计算期望值：
+
+\begin{align}E_{w_i \sim P}[\nabla_\theta (\mathcal{E}(w_i))] \approx \frac 1m \sum^{m}_{i=1}\nabla_\theta (\mathcal{E}(w_i))\end{align}
+
+但是为了实现从概率值分布\(P\)中采样，我们必须先计算得到\(P\)，而这个过程正是我们想绕开的。于是，我们用另一种类似于\(P\)但是采样更方便的分布\(Q\)来代替。在语言建模的任务中，直接把训练集的\(unigram\)分布作为\(Q\)不失为良策。这就是经典的重要性采样的做法：它使用蒙特卡洛方法得到分布\(Q\)来模拟真实的分布\(P\)。可是，被采样到的词语\(w\)仍然需要计算其概率值\(P(w)\)。
+
+上面把\(P_{w_i}\)赋值为\(\nabla_\theta (\mathcal{E}(w_i))\)
+的权重，这里我们把权重值改为与\(Q\)相关的一个因子。这个因子是
+\(\frac {r(w_i)}R \)。其中:
+
+\[r(w)=\frac{exp(-\mathcal{E}(w))}{Q(w)}, \space R=\sum_{j=1}^m r(w_j)\]
+
+于是期望的估计值公式可以写为:
+
+\[E_{w_i \sim P}[\nabla_\theta (\mathcal{E}(w_i))] \approx \sum^{m}_{i=1}\frac {r(w_i)}R \nabla_\theta (\mathcal{E}(w_i))\]
+
+若是采样的数量越少，估计的分布与真实分布差别越大。如果样本数量非常少，在训练过程中网络模型的分布\(P\)可能与\(unigram\)的分布\(Q\)差异很大，会导致模型发散，因此我们需要调整到合适的样本数量。Bengio和Senécal的论文中介绍了一种快速选择样本数量的方法。最终的运算速度比传统的softmax提升了19倍。
+
+\textbf{注：}
+
+\[\frac 1R \sum^{m}_{i=1}r(w_i)\nabla_\theta (\mathcal{E}(w_i))=\sum_{i=1}^m \frac{exp(-\mathcal{E}(w_i)) }{\sum_{i=1}^mexp(-\mathcal{E}(w_i))}  \nabla_\theta (-\mathcal{E}(w_i))\]
+
+\hypertarget{header-n1735}{%
+\paragraph{噪声对比估计}\label{header-n1735}}
+
+噪声对比估计是Mnih和Teh发明的一种比重要性采样更稳定的采样方法，因为某些情况下重要性采样存在导致分布\(Q\)与\(P\)分道扬镳的风险。\(NCE\)不是直接估计某个词语的概率值。相反，它借助一个辅助的损失值，从而实现了正确词语概率值最大化这一目标。
+
+NCE的想法：训练一个模型来区分目标词语与噪声。于是待解决的问题就由预测正确的词语简化为一个二值分类器任务，分类器试图将正确的词语与其它噪声样本中区分开来。对于每个词语\(w_i\)，它的前\(n\)个词语\(w_{t-1}, ……, w_{t-n+1}\)表示为\(w_i\)的语境\(c_i\)。然后从含有噪声的分布\(Q\)中生成\(k\)个噪声样本\(\tilde{w}_{ik}\)。参照重要性采样的方法，这里也可以从训练数据的\(unigram\)分布中采样。由于分类器需要用到标签数据，我们把语境
+\(c_i\)
+对应的所有正确的词语\(w_i\)标记为正样本\((y=1)\)，其余的噪声词语\(\tilde{w}_{ik}\)作为负样本\((y=0)\)。
+
+接着，用逻辑回归模型来训练样本数据：
+
+\[J_\theta=-\sum_{w_i \in V}[logP(y=1|w_i,c_i)+kE_{\tilde{w}_{ik} \sim Q}[logP(y=0|\tilde{w}_{ij},c_i)]]\]
+
+由于计算所有噪声样本的期望\(E_{\tilde{w}_{ik} \sim Q}\)
+仍需要对词表\(V\)中的词语求和，得到标准化的概率值。于是可以采用蒙特卡洛方法来估算：
+
+\begin{align}\begin{split}J_\theta&=-\sum_{w_i \in V}[logP(y=1|w_i,c_i)+k\sum_{j=1}^{k}\frac1k \space logP(y=0|\tilde{w}_{ij},c_i)] \\
+&=-\sum_{w_i \in V}[logP(y=1|w_i,c_i)+\sum_{j=1}^{k} logP(y=0|\tilde{w}_{ij},c_i)]
+\end{split}\end{align}
+
+实际上，我们是从两个不同的分布中采样数据：正样本是根据语境\(c\)从训练数据集\(P_{train}\)中采样，而负样本从噪声分布\(Q\)中采样获得。因此，无论是正样本还是负样本，其概率值都可以表示成上述两种分布带权重的组合，权重值对应于来自该分布的样本值：
+
+\[P(y,w|c)=\frac1{k+1}P_{train}(w|c)+\frac k{k+1}Q(w)\]
+
+于是，样本来自于\(Ptrain\)的概率值可以表示为条件概率的形式：
+
+\begin{align}\begin{split}P(y=1|w,c)&=\frac{\frac1{k+1}P_{train}(w|c)}{\frac1{k+1}P_{train}(w|c)+\frac k{k+1}Q(w)} \\ &= \frac{P_{train}(w|c)}{P_{train}(w|c)+kQ(w)}
+\end{split}\end{align}
+
+由于不知道\(P_{train}\)（待计算项），我们就用\(P\)来代替：
+
+\[P(y=1|w,c)=\frac{P(w|c)}{P(w|c)+kQ(w)}\]
+
+当然，样本为负样本的概率值就是\(P(y=0|w,c)=1−P(y=1|w,c)\)
+。值得注意的是，已知\(c\)求词语\(w\)出现的概率值\(P(w|c)\)的计算方法实际上就是\(softmax\)的定义：
+
+\[P(w|c)=\frac{exp(h^Tv_w^{'})}{\sum_{w_i \in V}exp(h^Tv^{'}_{w_i})}\]
+
+因为分母只与\(h\)相关，\(h\)的值与\(c\)相关（假设\(V\)不变），那么分母可以简化为\(Z(c)\)来表示。\(softmax\)就变为下面的形式：
+
+\[P(w|c)=\frac{exp(h^Tv_w^{'})}{Z(c)}\]
+
+为了求解\(Z(c)\)，还是需要对\(V\)中所有词语出现的概率值求和。\(NCE\)则用了一个小技巧巧妙地绕开：即把标准化后的分母项\(Z(c)\)当作模型的待学习参数。Mnih和Teh、Vaswani等在论文中都把\(Z(c)\)的值固定设为1，他们认为这样不会对模型的效果造成影响。Zoph则认为，即使训练模型，最终得到\(Z(c)\)的值也是趋近于1，并且方差很小。若是我们把上面\(softmax\)等式中的\(Z(c)\)项改为常数1，等式就变为：
+
+\[P(w|c)=exp(h^Tv_w^{'})\]
+
+再把上面的式子代入求解\(P(y=1|w,c)\) ，得到：
+
+\[P(y=1|w,c)=\frac{exp(h^Tv_w^{'})}{exp(h^Tv_w^{'})+kQ(w)}\]
+
+继续把上式代入逻辑回归的目标函数中，得到：
+
+\[J_\theta=-\sum_{w_i \in V}[log\frac{exp(h^Tv_w^{'})}{exp(h^Tv_w^{'})+kQ(w)}+\sum_{j=1}^{k} log(1-\frac{exp(h^Tv_{\tilde{w}_{ij}}^{'})}{exp(h^Tv_{\tilde{w}_{ij}}^{'})+kQ({\tilde{w}_{ij}})})]\]
+
+\(NCE\)方法有非常完美的理论证明：随着噪声样本\(k\)的数量增加，\(NCE\)导数趋近于\(softmax\)函数的梯度。
+
+Jozefowicz认为\textbf{NCE与IS的相似点}不仅在于它们都是基于采样的方法，而且相互之间联系非常紧密。NCE等价于解决二分类任务，他认为IS问题也可以用一个代理损失函数来描述：\(IS\)相当于用\(softmax\)和交叉熵损失函数来优化解决多分类问题。他觉得IS是多分类问题，可能更适用于自然语言的建模，因为它迭代更新受到数据和噪声样本的共同作用，而NCE的迭代更新则是分别作用。事实上，Jozefowicz等人选用IS作为语言模型并且取得了最佳的效果。
+
+\hypertarget{header-n1760}{%
+\paragraph{负采样}\label{header-n1760}}
+
+负采样(Negative
+Sampling)可以被认为是NCE的一种近似版本。我们之前也提到过，随着样本数量\(k\)的增加，NCE近似于softmax的损失。由于NEG的目标是学习高质量的词向量表示，而不是降低测试集的perplexity指标，于是NEG对NCE做了简化。
+
+NEG也采用逻辑回归模型，使得训练集中词语的负对数似然最小。再回顾一下NCE的计算公式：
+
+\[P(y=1|w,c)=\frac{exp(h^Tv_w^{'})}{exp(h^Tv_w^{'})+kQ(w)}\]
+
+NEG与NCE的关键区别在于NEG以尽可能简单的方式来估计这个概率值。为此，上式中计算量最大的\(kQ(w)\)
+项被置为1，于是得到：
+
+\[P(y=1|w,c)=\frac{exp(h^Tv_w^{'})}{exp(h^Tv_w^{'})+1}\]
+
+当\(k=|V|\)并且\(Q\)是均匀分布时，\(kQ(w)=1\)成立。此时，NEG等价于NCE。我们将\(kQ(w)\)设置为1，而不是其它常数值的原因在于，\(P(y=1|w,c)\)可以改写为\(sigmoid\)函数的形式：
+
+\[P(y=1|w,c)=\frac{1}{1+exp(-h^Tv_w^{'})}\]
+
+如果我们再把这个等式代入之前的逻辑回归损失函数中，可以得到：
+
+\begin{align}\begin{split}J_\theta&=-\sum_{w_i \in V}[log\frac{1}{1+exp(-h^Tv_w^{'})}+\sum_{j=1}^{k} log(1-\frac{1}{1+exp(-h^Tv_{\tilde{w}_{ij}}^{'})})] \\
+&=-\sum_{w_i \in V}[log\frac{1}{1+exp(-h^Tv_w^{'})}+\sum_{j=1}^{k} log\frac{1}{1+exp(h^Tv_{\tilde{w}_{ij}}^{'})}]\\
+&=-\sum_{w_i \in V}[log \space\sigma({h^Tv_w^{'}})+\sum_{j=1}^{k} log \space\sigma({-h^Tv_{\tilde{w}_{ij}}^{'}})]
+\end{split}\end{align}
+
+而且仅当\(k=|V|\)并且\(Q\)是均匀分布时，NEG才等价于NCE。在其它情况下，NEG只是近似于NCE，也就是说前者不会直接优化正确词语的对数似然，所以不适合用于自然语言建模。NEC更适用于训练词向量表示。
+
+\hypertarget{header-n1771}{%
+\subsubsection{马尔可夫过程}\label{header-n1771}}
+
+MCMC(Markov Chain Monte
+Carlo)的基础理论为马尔可夫过程，在MCMC算法中，为了在一个指定的分布上采样，根据马尔可夫过程，首先从任一状态出发，模拟马尔可夫过程，不断进行状态转移，最终收敛到平稳分布。
+
+\href{https://cosx.org/2013/01/lda-math-mcmc-and-gibbs-sampling}{参考链接}
+
+\hypertarget{header-n1774}{%
+\subparagraph{4.1 马尔可夫链}\label{header-n1774}}
+
+设\(X_t\)表示随机变量\(X\)在离散时间\(t\)时刻的取值。若该变量随时间变化的转移概率仅仅依赖于它的当前取值，即
+
+\[P(X_{t+1}=s_j|X_0=s_0,X_1=s_1,...,X_t=s_t)=P(X_{t+1}=s_j|X_t=s_i)\]
+
+也就是说状态转移的概率只依赖于前一个状态，称这个变量为马尔可夫变量。这个性质称为马尔可夫性质，具有马尔可夫性质的随机过程称为马尔可夫过程。
+
+马尔可夫链指的是在一段时间内随机变量\(X\)的取值序列\((X_0,X_1,...,X_m)\)，它们满足如上的马尔可夫性质。
+
+\hypertarget{header-n1779}{%
+\subparagraph{4.2 转移概率}\label{header-n1779}}
+
+\begin{align}\begin{split}\pi^{(t+1)}_i&=P(X_{t+1}=s_i)\\&=\sum_{k}P(X_{t+1}=s_i|X_t=s_k)\cdot P(X_t=s_k)\\&= \sum_kP_{k,i}\cdot \pi^{(t)}_k\end{split}\end{align}
+
+假设状态的数目为n，则有：
+
+\begin{align}\begin{split}\pi_{t+1}&=\pi_t\cdot P\\\pi_{t}&=(\pi^{(t)}_1,\pi^{(t)}_2,\cdots,\pi^{(t)}_n\end{split}\end{align}
+
+\hypertarget{header-n1784}{%
+\subparagraph{4.3 马尔可夫链的平稳分布}\label{header-n1784}}
+
+对于马尔可夫链，需要注意以下的两点：
+
+\begin{itemize}
+\item
+  1、周期性：即经过有限次的状态转移，又回到了自身；
+\item
+  2、不可约：即两个状态之间相互转移；
+\end{itemize}
+
+如果一个马尔可夫过程既没有周期性，又不可约，则称为各态遍历的。
+
+\textbf{马氏链定理：}如果一个非周期马氏链具有转移概率矩阵 \(P\),
+且它的任何两个状态是连通的，那么\(\lim_{n\rightarrow \infin}p^n_{ij}\)存在且与\(i\)无关，记\(\lim_{n\rightarrow \infin}p^n_{ij}=\pi\)，
+我们有
+
+\[\lim_{n\rightarrow \infin}P^n=\begin{bmatrix} \pi(1) & \cdots & \pi(2) & \cdots & \pi(j) & \cdots \\ \pi(1) & \cdots & \pi(2) & \cdots & \pi(j) & \cdots \\ \cdots & \cdots & \cdots & \cdots & \cdots & \cdots \\ \pi(1) & \cdots & \pi(2) & \cdots & \pi(j) & \cdots \\ \cdots & \cdots & \cdots & \cdots & \cdots & \cdots \end{bmatrix}\]
+
+\[\pi_{(j)}=\sum^{\infin}_{i=0}\pi_{(i)}p_{i,j}\]
+
+\[\pi = [\pi(1), \pi(2), \cdots, \pi(j),\cdots ], \quad \sum_{i=0}^{\infty} \pi_i = 1\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{举例：设转移概率矩阵为：}
+\end{enumerate}
+
+\begin{longtable}[]{@{}ccccc@{}}
+\toprule
+& & & 子代 &\tabularnewline
+\midrule
+\endhead
+& state & 1 & 2 & 3\tabularnewline
+& 1 & 0.65 & 0.28 & 0.07\tabularnewline
+父代 & 2 & 0.15 & 0.67 & 0.18\tabularnewline
+& 3 & 0.12 & 0.36 & 0.52\tabularnewline
+\bottomrule
+\end{longtable}
+
+使用该状态转移概率矩阵,从任意一个随机概率分布开始,不断迭代进行状态转移,最终为稳定收敛到概率分布{[}
+0.28650138, 0.48852158, 0.22497704{]}
+
+演示代码如下：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np}
+\ImportTok{import}\NormalTok{ scipy }\ImportTok{as}\NormalTok{ sp}
+
+\CommentTok{# transition probability matrix}
+\NormalTok{P }\OperatorTok{=}\NormalTok{ np.array([[}\FloatTok{0.65}\NormalTok{,}\FloatTok{0.28}\NormalTok{,}\FloatTok{0.07}\NormalTok{], [}\FloatTok{0.15}\NormalTok{, }\FloatTok{0.67}\NormalTok{, }\FloatTok{0.18}\NormalTok{], [}\FloatTok{0.12}\NormalTok{,}\FloatTok{0.36}\NormalTok{,}\FloatTok{0.52}\NormalTok{]])}
+
+\CommentTok{# initial probability}
+\NormalTok{pi }\OperatorTok{=}\NormalTok{ np.random.uniform(}\FloatTok{0.0}\NormalTok{,}\FloatTok{1.0}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+\CommentTok{# normalize to sum(pi) = 1}
+\NormalTok{pi }\OperatorTok{=}\NormalTok{ pi }\OperatorTok{/} \BuiltInTok{sum}\NormalTok{(pi)}
+
+\CommentTok{# start to iteration and print distrubition which can show convergence}
+\BuiltInTok{iter} \OperatorTok{=} \DecValTok{0}
+\BuiltInTok{print} \BuiltInTok{iter}\NormalTok{,pi}
+\ControlFlowTok{while} \BuiltInTok{iter} \OperatorTok{<} \DecValTok{50}\NormalTok{:    }
+\NormalTok{    pi }\OperatorTok{=}\NormalTok{ np.matmul(pi,P)}
+    \BuiltInTok{iter} \OperatorTok{+=} \DecValTok{1}
+    \BuiltInTok{print} \BuiltInTok{iter}\NormalTok{,pi}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{稳定分布与特征向量的关系:}
+\end{enumerate}
+
+稳定分布\(\pi\)是一个(行)向量，它的元素都非负且和为1，不随施加\(P\)操作而改变，定义为
+\(\pi P=\pi\)。
+
+那么：\(P^T\pi^T=\pi^T\) ，
+
+对比定义可以看出,这两个概念是相关的,并且\(\pi=\frac{e}{\sum_i e_i}\)是由(\(\sum_i\pi_i=1\))归一化的转移矩阵\(P\)的左特征向量\(e\)的倍数，其特征值为1.
+
+操作上:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  对P的转置进行特征值分解得到特征向量和特征值.
+\item
+  最大的特征值应为1,其对应的特征向量为矩阵的第i列
+\item
+  对特征向量进行归一化,可以得到该状态转移矩阵的稳定分布
+\end{enumerate}
+
+演示代码如下:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# evd}
+\NormalTok{w,v}\OperatorTok{=}\NormalTok{np.linalg.eig(P.transpose())}
+
+\CommentTok{# there must be an eigenvalue w[i] should be 1.}
+\CommentTok{# all abs(eigenvalue) <= 1}
+\CommentTok{# correspond eigenvector is the column of v[:,i]}
+\CommentTok{# the eigenvector should be normalized to 1 as it should be probability distribution}
+\NormalTok{idx }\OperatorTok{=}\NormalTok{ np.where(}\BuiltInTok{abs}\NormalTok{(w}\FloatTok{-1.0}\NormalTok{)}\OperatorTok{<}\FloatTok{1e-9}\NormalTok{)[}\DecValTok{0}\NormalTok{][}\DecValTok{0}\NormalTok{]}
+
+\BuiltInTok{print}\NormalTok{ w[idx]}
+\BuiltInTok{print}\NormalTok{ v[:,idx]}\OperatorTok{/}\BuiltInTok{sum}\NormalTok{(v[:,idx])}
+\end{Highlighting}
+\end{Shaded}
+
+实际上nxn矩阵特征向量的一种求法就是用一个随机向量不断迭代与该矩阵相乘。
+
+马氏链的收敛定理非常重要，所有的 MCMC(Markov Chain Monte Carlo)
+方法都是以这个定理作为理论基础的。
+
+对于给定的概率分布\(p(x)\),我们希望能有便捷的方式生成它对应的样本。由于马氏链能收敛到平稳分布，
+于是一个很的漂亮想法是：如果我们能构造一个转移矩阵为\(P\)的马氏链，使得该马氏链的平稳分布恰好是\(p(x)\),
+那么我们从任何一个初始状态\(x_0\)出发沿着马氏链转移,
+得到一个转移序列\(x_0,x_1,...,x_n,x_{n+1},...\)，
+如果马氏链在第\(n\)步已经收敛了，于是我们就得到了\(p(x)\)的样本\(x_n,x_{n+1},...\)。
+
+从初始概率分布 \(\pi_0\)
+出发，我们在马氏链上做状态转移，记\(X_i\)的概率分布为\(\pi_i\)，则有
+
+\begin{align}
+\begin{split}
+X_0 & \sim \pi_0(x)\\
+X_i & \sim \pi_i(x)\\
+\quad\quad \pi_i(x) &= \pi_{i-1}(x)P = \pi_0(x)P^n
+\end{split}
+\end{align}
+
+由马氏链收敛的定理,
+概率分布\(\pi_i(x)\)将收敛到平稳分布\(\pi_x\)。假设到第\(n\)步的时候马氏链收敛，则有
+
+\begin{align}
+\begin{split}
+X_0 & \sim \pi_0(x) \\
+X_1 & \sim \pi_1(x) \\
+& \cdots \\
+X_n & \sim \pi_n(x)=\pi(x) \\
+X_{n+1} & \sim \pi(x) \\
+X_{n+2}& \sim \pi(x) \\
+& \cdots
+\end{split}
+\end{align}
+
+所以
+\(X_n,X_{n+1},X_{n+2},\cdots \sim \pi(x)\)都是同分布的随机变量，当然他们并不独立。如果我们从一个具体的初始状态
+\(x_0\) 开始, 沿着马氏链按照概率转移矩阵做跳转，那么我们得到一个转移序列
+\(x_0, x_1, x_2, \cdots x_n, x_{n+1}\cdots\)
+由于马氏链的收敛行为，\(x_n, x_{n+1},\cdots\) 都将是平稳分布 \(\pi(x)\)
+的样本。
+
+\hypertarget{header-n1860}{%
+\subparagraph{4.4 细致平稳条件}\label{header-n1860}}
+
+又称可反转马尔可夫链。可反转马尔可夫链类似于应用贝叶斯定理来反转一个条件概率：
+
+\begin{align}\begin{split}Pr(X_{n}=i \vert X_{n+1}=j)&=\frac{Pr(X_{n}=i,X_{n+1}=j)}{Pr(X_{n+1}=j)}\\ &=\frac {Pr(X_{n}=i)\Pr(X_{n+1}=j \vert X_{n}=i)}{Pr(X_{n+1}=j)}\end{split}\end{align}
+
+以上就是反转的马尔可夫链。因而，如果存在一个
+\(\pi\)，使得：\(\pi_{i}p_{ij}=\pi_{j}p_{ji}\)那么这个马尔可夫链就是可反转的.
+这个条件也被称为细致平稳(detailed balance)条件. 对于所有的i求和：
+
+\[\sum_{i}\pi_{i}p_{ij}=\pi_{j}\]
+
+所以，对于可反转马尔可夫链，\(\pi\) 总是一个平稳分布。
+
+\textbf{注: 细致平稳条件为马尔可夫链有平稳分布的充分条件}
+
+设\(p(x)\)为目标分布, 马尔科夫状态转移概率矩阵为Q,
+如果此时细致平稳条件不成立,即
+
+\[p(i)Q(i,j) \neq p(j)Q(j,i)\]
+
+可以对Q进行改造以满足细致平稳条件, 具体方法为引入\(\alpha\), 使下式成立.
+
+\[p(i)Q(i,j)\alpha(i,j) = p(j)Q(j,i)\alpha(j,i)\]
+
+当下面两式成立时，上式可成立 :
+
+\begin{align}\begin{split}\alpha(i,j) = p(j)Q(j,i)\\\alpha(j,i) = p(i)Q(i,j)\end{split}\end{align}
+
+这样，我们就得到了我们的分布π(x)对应的马尔科夫链状态转移矩阵P，满足：
+
+\[Q^{\prime}(i,j) = Q(i,j)\alpha(i,j)\]
+
+称\(\alpha(i,j)\)为接受概率。
+
+于是我们把原来具有转移矩阵Q的一个很普通的马式链改造为了具有转移矩阵\(Q^{\prime}\)的马式链，而\(Q^{\prime}\)恰好满足细致平稳条件，由此马式链\(Q^{\prime}\)的平稳分布就是\(p(x)\)！
+
+为了使\(Q(i,j)\alpha(i,j)\)满足细致平稳条件.
+一般来说\(Q(i,j)\alpha(i,j)\)也是不方便直接采样的.
+实际的做法是采用拒绝采样方法,把
+\(\alpha(i,j)\)看作一个状态转移的接受概率.
+从(0,1)均匀分布中做一个采样得到u,如果\(u<\alpha(i,j)\)则接受\(Q(i,j)\)采样出样本的状态转移,否则拒绝，保持原状态。
+
+有了状态转移概率,现在我们可以开始做采样了
+
+\begin{itemize}
+\item
+  \(p(x)\)为样本的目标概率分布
+\item
+  t时刻马式链状态为\(X_t=x_t\)，采样\(y\sim q(x\vert x_t)\)
+\item
+  从(0, 1)均匀分布U采样u
+\item
+  如果\(u<\alpha(x_t,y)=p(y)q(x_t\vert y)\)，则接受转移\(x_t\rightarrow y\)，即\(X_{t+1}=y\)
+\item
+  否则拒绝转移，即\(X_{t+1}=x_t\)
+\end{itemize}
+
+U分布的选择,对于连续随机变量,个人觉得高斯分布是个常用的选择.也就是t时刻的值为以t-1时刻的值为均值的高斯分布.
+
+\hypertarget{header-n1893}{%
+\subparagraph{4.5 Metroplis-Hasting算法}\label{header-n1893}}
+
+M-H算法主要是解决接受率过低的问题, 回顾MCMC采样的细致平稳条件：
+
+\[p(i)Q(i,j)\alpha(i,j)=p(j)Q(j,i)\alpha(j,i)\]
+
+我们采样效率低的原因是 \(\alpha(i,j)\)太小了，比如为0.1，而
+\(\alpha(j,i)\)为0.2. 即：
+
+\[p(i)Q(i,j)×0.1=p(j)Q(j,i)×0.2\]
+
+这时我们可以看到，如果两边同时扩大五倍，接受率提高到了0.5，但是细致平稳条件却仍然是满足的，即：
+
+\[p(i)Q(i,j)×0.5=p(j)Q(j,i)×1\]
+
+这样我们的接受率可以做如下改进，即：
+
+\[α(i,j)=min(\frac{p(j)Q(j,i)}{p(i)Q(i,j)},1)\]
+
+在MCMC的基础上,只需将第4步中的计算接受率的公式改为上式即可.
+
+MCMC因为提议分布和接受/拒绝机制使得其能构造出一个满足细致平稳的转移内核（也就是Markov
+Chain里面的转移概率矩阵）。这个Markov
+Chain是遍历的，他的稳态分布刚好是我们想要的后验分布。然后配上遍历定理，我们就能为所欲为了。
+
+\hypertarget{header-n1904}{%
+\paragraph{5 Gibbs Sampling}\label{header-n1904}}
+
+吉布斯采样（Geman and Geman,
+1984）是⼀个简单的并且⼴泛应⽤的马尔科夫链蒙特卡罗
+算法，可以被看做Metropolis-Hastings算法的⼀个具体的情形。
+
+Gibbs sampling
+的特点是，每个step更新变量中的一个维度，比如，\(X_i={x_{i1},x_{i2},x_{i3},\cdots}\),
+则\(X_i={x_{i1},x_{i2},x^{\prime}_{i3},\cdots}\)，仅更新第三个维度。多个维度交替更新。
+
+注意Gibbs Sampler并不满足细致平稳，他只满足global balance。
+
+\end{document}
